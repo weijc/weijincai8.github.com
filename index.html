@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Weijincai8.GitHub.io by weijc</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Weijincai8.GitHub.io</h1>
+        <h2>James Wei----博客</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/weijc/weijincai8.github.io/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/weijc/weijincai8.github.io/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/weijc/weijincai8.github.io" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="androidmk总结" class="anchor" href="#androidmk%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Android.mk总结</strong>
+</h1>
+
+<h2>
+<a id="1androidmk是什么" class="anchor" href="#1androidmk%E6%98%AF%E4%BB%80%E4%B9%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.Android.mk是什么</h2>
+
+<pre><code>是Android编译的时候需要用到的编译规则文件。相当于linux里的makefile。
+</code></pre>
+
+<hr>
+
+<h2>
+<a id="2androidmk有什么用" class="anchor" href="#2androidmk%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.Android.mk有什么用</h2>
+
+<pre><code>Android.mk告诉编译系统如何编译代码。当我们使用mm进行编译时，需要Android.mk告诉编译器我的源代码是哪些，如何编译我的代码，编译完成后输出到哪一个目录下等信息。
+</code></pre>
+
+<hr>
+
+<h2>
+<a id="3androidmk的语法简介" class="anchor" href="#3androidmk%E7%9A%84%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.Android.mk的语法简介</h2>
+
+<pre><code>用一个例子来说明Android.mk的语法，这个东西不用死记硬背，看多了自然就知道了。
+</code></pre>
+
+<p>路径：hardware/libhardware/modules/audio<br>
+LOCAL_PATH := $(call my-dir)<br>
+include $(CLEAR_VARS)<br>
+LOCAL_MODULE := audio.primary.default<br>
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw<br>
+LOCAL_SRC_FILES := audio_hw.c<br>
+LOCAL_SHARED_LIBRARIES := liblog libcutils<br>
+LOCAL_MODULE_TAGS := optional<br>
+include $(BUILD_SHARED_LIBRARY)<br>
+include $(CLEAR_VARS)<br>
+LOCAL_MODULE := audio_policy.stub<br>
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw<br>
+LOCAL_SRC_FILES := audio_policy.c<br>
+LOCAL_SHARED_LIBRARIES := liblog libcutils<br>
+LOCAL_MODULE_TAGS := optional  </p>
+
+<h2>
+<a id="include-build_shared_library--" class="anchor" href="#include-build_shared_library--" aria-hidden="true"><span class="octicon octicon-link"></span></a>include $(BUILD_SHARED_LIBRARY)  </h2>
+
+<h2>
+<a id="4androidmk进价" class="anchor" href="#4androidmk%E8%BF%9B%E4%BB%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.Android.mk进价</h2>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
